@@ -19,6 +19,13 @@ module.exports = async(expressApp)=>{
     expressApp.use((err, req, res, next) => {
         console.error(err);
     });
+
+    expressApp.use(session({
+        secret: '!#%%!#@!',
+        resave: false,
+        saveUninitialized: true
+    }));
+
     //http://localhost:3000/login
     expressApp.use('/login', loginRouter);  // login router
 

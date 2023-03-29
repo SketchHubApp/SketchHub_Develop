@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 async function startServer(){
     const app = express();
     app.use(bodyParser.json());
-    app.use(express.urlencoded( {extended : false } ));
+    app.use(express.urlencoded( { extended : true } ));
     await loader(app);
     app.listen(app.get('port'), () => {
         console.log(app.get('port'), 'port waiting...');
